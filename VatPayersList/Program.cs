@@ -27,7 +27,7 @@ app.MapGet("/getVatPayerByNip", async (string nip) =>
 
     if (!response.IsSuccessStatusCode)
     {
-        var apiException = response.Content.ReadFromJsonAsync<ApiException>();
+        var apiException = await response.Content.ReadFromJsonAsync<ApiException>();
 
         return Results.BadRequest(apiException);
     }  

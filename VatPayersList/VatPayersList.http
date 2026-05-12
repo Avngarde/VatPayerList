@@ -1,0 +1,6 @@
+@VatPayersList_HostAddress = http://localhost:5221
+
+GET {{VatPayersList_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

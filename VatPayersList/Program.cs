@@ -1,3 +1,5 @@
+using VatPayersList.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -16,11 +18,25 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapGet("/weatherforecast", () =>
+app.MapGet("/getVatPayerByNip", async (string nip) =>
 {
+    HttpClient httpClient = new();
+    var response = await httpClient.GetAsync(
+        $"https://wl-api.mf.gov.pl/api/search/nip/{nip}?date={DateTime.Now:yyyy-MM-dd}"
+    );
 
+    if (!response.IsSuccessStatusCode)
+    {
+        var apiException = response.Content.ReadFromJsonAsync<ApiException>();
+
+        return Results.BadRequest(apiException);
+    }  
+
+    var entity = await response.Content.ReadFromJsonAsync<EntityResponse>();
+
+    return Results.Ok(entity);
 })
-.WithName("GetWeatherForecast")
+.WithName("GetVatPayerByNip")
 .WithOpenApi();
 
 app.Run();

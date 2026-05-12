@@ -6,8 +6,8 @@ namespace VatPayersList.Models;
 public class ApiException
 {
     [JsonPropertyName("message")]
-    public string Message { get; set; }
+    public string? Message { get; set; }
 
     [JsonPropertyName("code")]
-    public string Code { get; set; }
+    public string? Code { get; set; }
 }

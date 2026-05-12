@@ -6,8 +6,8 @@ namespace VatPayersList.Models;
 public class EntryError
 {
     [JsonPropertyName("identifier")]
-    public string Identifier { get; set; }
+    public string? Identifier { get; set; }
 
     [JsonPropertyName("error")]
-    public ApiException Error { get; set; }
+    public ApiException? Error { get; set; }
 }

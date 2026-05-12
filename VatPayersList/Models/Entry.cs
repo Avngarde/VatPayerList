@@ -6,8 +6,8 @@ namespace VatPayersList.Models;
 public class Entry
 {
     [JsonPropertyName("identifier")]
-    public string Identifier { get; set; }
+    public string? Identifier { get; set; }
 
     [JsonPropertyName("subjects")]
-    public List<Entity> Subjects { get; set; }
+    public List<Entity>? Subjects { get; set; }
 }

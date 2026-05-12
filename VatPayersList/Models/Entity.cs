@@ -13,7 +13,7 @@ namespace VatPayersList.Models
     public class Entity
     {
         [JsonPropertyName("name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         [JsonPropertyName("nip")]
         public string? Nip { get; set; }

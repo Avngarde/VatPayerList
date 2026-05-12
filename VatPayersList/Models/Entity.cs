@@ -3,13 +3,6 @@ using System.Text.Json.Serialization;
 
 namespace VatPayersList.Models
 {
-    public enum VatStatus
-    {
-        Czynny,
-        Zwolniony,
-        Niezarejestrowany
-    }
-
     public class Entity
     {
         [JsonPropertyName("name")]
@@ -19,7 +12,7 @@ namespace VatPayersList.Models
         public string? Nip { get; set; }
 
         [JsonPropertyName("statusVat")]
-        public VatStatus? StatusVat { get; set; }
+        public string? StatusVat { get; set; }
 
         [JsonPropertyName("regon")]
         public string? Regon { get; set; }
